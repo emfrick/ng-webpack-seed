@@ -14,7 +14,7 @@ A seed project for using Angular 1.x with Webpack.
 ### Installation
 ```
 # Clone the repo
-$ git clone <url>
+$ git clone https://github.com/emfrick/ng-webpack-seed
 
 # Move into the directory
 $ cd ng-webpack-seed
