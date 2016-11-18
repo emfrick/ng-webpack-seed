@@ -8,6 +8,7 @@ const path = require('path');
  * Webpack Plugin Declarations
  */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 /**
  * Webpack Configuration
@@ -18,7 +19,8 @@ const config = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: '/'  // Allows static content to be hosted from this location
+                     // HTML can now refer to /assets/img for all images
   },
   module: {
     preLoaders: [
@@ -52,11 +54,18 @@ const config = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'html', 'index.html'),
       inject: 'body'
-    })
+    }),
+
+    new CopyWebpackPlugin([{
+      from: path.join(__dirname, 'assets'),
+      to: path.join(__dirname, 'dist', 'assets')
+    }])
   ],
   devServer: {
-    contentBase: './src',
-    stats: 'minimal'
+    contentBase: './',  // Allows static content to be hosted from this location
+                       // HTML can now refer to /assets/img for all images
+    stats: 'minimal',
+    outputPath: __dirname // To make copy-webpack-plugin happy
   }
 };
 

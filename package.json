@@ -13,12 +13,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url" : "https://github.com/emfrick/ng-webpack-seed"
+    "url": "https://github.com/emfrick/ng-webpack-seed"
   },
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.7",
     "babel-preset-es2015": "^6.18.0",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.0",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.24.1",
